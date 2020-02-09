@@ -6,6 +6,7 @@ from rolocode.rolo import Rolo
 from nxt_main.nxt_brick import NXTBrickController
 import os
 import time
+import sys
 
 '''
 Added this conditional import to be able to still run the scripts when there's actually no
