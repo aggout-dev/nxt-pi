@@ -1,6 +1,7 @@
 import nxt_mock.brick
 
-class BlueSock():
+
+class BlueSock:
     def __init__(self, address):
         pass
 

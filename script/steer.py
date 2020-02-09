@@ -1,5 +1,5 @@
 import time
-from script.abstract_script import Script
+from script.script import Script
 
 
 class Steer(Script):

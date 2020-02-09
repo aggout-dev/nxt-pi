@@ -3,6 +3,7 @@ PORT_B = 0x01
 PORT_C = 0x02
 PORT_ALL = 0xFF
 
+
 class Motor:
     def __init__(self, brick, port):
         pass

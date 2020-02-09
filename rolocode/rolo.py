@@ -28,7 +28,7 @@ class Rolo:
 
     def disconnect(self):
         if self.is_connected():
-            self.brick_controller.sock.close()
+            self.brick_controller.sock().close()
 
     def is_connected(self):
-        self.brick_controller.sock is not None
+        return self.brick_controller.sock() is not None
