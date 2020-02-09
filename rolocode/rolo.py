@@ -20,7 +20,7 @@ class Rolo:
         self.steering.turn(DEFAULT_POWER, angle)
 
     def steer_left(self, angle):
-        self.steering.turn(DEFAULT_POWER, -angle)
+        self.steering.turn(-DEFAULT_POWER, angle)
 
     def halt(self):
         for motor in self.wheels:

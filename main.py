@@ -51,8 +51,11 @@ if __name__ == '__main__':
         rolo = Rolo(NXTBrickController(brick_connection))
         m = Main(rolo)
         m.test_drive1()
+        sleep(3)
         m.test_drive2()
+        sleep(3)
         m.test_steer1()
+        sleep(3)
         m.test_steer2()
     except IOError:
         print("Error while running tests:")
