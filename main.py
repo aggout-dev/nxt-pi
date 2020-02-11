@@ -32,15 +32,15 @@ class Main:
         self.drive_script.execute(params)
 
     def test_drive2(self):
-        params = {'power': 50, 'time': 2}
+        params = {'power': 75, 'time': 3}
         self.drive_script.execute(params)
 
     def test_steer1(self):
-        params = {'angle': 30, 'dir': 'right'}
+        params = {'min_speed': 75, 'dir': 'right'}
         self.steer_script.execute(params)
 
     def test_steer2(self):
-        params = {'angle': 30, 'dir': 'left'}
+        params = {'min_speed': 75, 'dir': 'left'}
         self.steer_script.execute(params)
 
 
