@@ -6,31 +6,34 @@ class Rolo:
     def __init__(self, brick_controller):
         assert brick_controller is not None
         self.brick_controller = brick_controller
-        self.wheels = [brick_controller.motor_b, brick_controller.motor_c]
-        self.steering = brick_controller.motor_a
+        self.wheels = (brick_controller.motor_b, brick_controller.motor_c)
 
     def drive(self, power=DEFAULT_POWER):
         print(f'drive {power}')
-        for motor in self.wheels:
-            motor.run(power=power)
+        self.drive(power, power)
 
-    def turn_wheels(self, angle, power=DEFAULT_POWER):
-        print(f'turn_wheels {angle}, {power}')
-        for motor in self.wheels:
-            motor.turn(power, tacho_units=angle)
+    def drive(self, power_left=DEFAULT_POWER, power_right=DEFAULT_POWER):
+        print(f'drive {power_left}, {power_right}')
+        self.wheels[0].run(power=power_left)
+        self.wheels[1].run(power=power_right)
 
-    def steer_right(self, angle):
-        print(f'steer_right {angle}')
-        self.steering.turn(DEFAULT_POWER, angle)
+    def drive_left(self, power=DEFAULT_POWER):
+        print(f'drive_left {power}')
+        self.wheels[0].run(power=power)
 
-    def steer_left(self, angle):
-        print(f'steer_left {angle}')
-        self.steering.turn(-DEFAULT_POWER, angle)
+    def drive_right(self, power=DEFAULT_POWER):
+        print(f'drive_right {power}')
+        self.wheels[1].run(power=power)
+
+    def rotate(self, power=DEFAULT_POWER):
+        print(f'rotate {power}')
+        self.wheels[0].run(power=power_left)
+        self.wheels[1].run(power=-power_right)
 
     def halt(self):
         print(f'halt')
         for motor in self.wheels:
-            motor.idle()
+            motor.brake()
 
     def disconnect(self):
         print(f'disconnect')

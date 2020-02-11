@@ -8,10 +8,14 @@ class Steer(Script):
         direction = params['dir']
 
         if direction == 'right':
-            self.rolo.steer_right(angle)
+            self.rolo.drive()
             time.sleep(2)
-            self.rolo.steer_left(angle)
+            self.rolo.drive_left(50)
+            time.sleep(2)
+            self.rolo.halt()
         else:
-            self.rolo.steer_left(angle)
+            self.rolo.drive()
             time.sleep(2)
-            self.rolo.steer_right(angle)
+            self.rolo.drive_right(50)
+            time.sleep(2)
+            self.rolo.halt()

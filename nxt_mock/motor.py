@@ -8,8 +8,8 @@ class Motor:
     def __init__(self, brick, port):
         pass
 
-    def turn(self, power, angle):
-        print(f'mock Motor.turn({power}, {angle})')
+    def brake(self):
+        print(f'mock Motor.brake()')
 
     def idle(self):
         print(f'mock Motor.idle()')
