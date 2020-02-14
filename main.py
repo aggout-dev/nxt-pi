@@ -2,6 +2,7 @@
 
 from script.drive import Drive
 from script.steer import Steer
+from script.rotate import Rotate
 from rolocode.rolo import Rolo
 from nxt_main.nxt_brick import NXTBrickController
 import os
@@ -26,9 +27,10 @@ class Main:
     def __init__(self, rolo):
         self.drive_script = Drive(rolo)
         self.steer_script = Steer(rolo)
+        self.rotate_script = Rotate(rolo)
 
     def test_drive1(self):
-        params = {'power': 100, 'time': 3}
+        params = {'power': 100, 'time': 2}
         self.drive_script.execute(params)
 
     def test_drive2(self):
@@ -43,6 +45,26 @@ class Main:
         params = {'min_speed': 75, 'dir': 'left'}
         self.steer_script.execute(params)
 
+    def test_steer3(self):
+        params = {'min_speed': 0, 'dir': 'right'}
+        self.steer_script.execute(params)
+
+    def test_rotate1(self):
+        params = {'power': 75, 'dir': 'left', 'time': 2}
+        self.rotate_script.execute(params)
+
+    def test_rotate2(self):
+        params = {'power': 75, 'dir': 'right', 'time': 2}
+        self.rotate_script.execute(params)
+
+    def test_rotate3(self):
+        params = {'power': 120, 'dir': 'left', 'time': 1}
+        self.rotate_script.execute(params)
+
+    def test_rotate4(self):
+        params = {'power': 120, 'dir': 'right', 'time': 1}
+        self.rotate_script.execute(params)
+
 
 if __name__ == '__main__':
     brick_connection = None
@@ -53,12 +75,22 @@ if __name__ == '__main__':
         rolo = Rolo(NXTBrickController(brick_connection))
         m = Main(rolo)
         m.test_drive1()
-        time.sleep(3)
+        time.sleep(2)
         m.test_drive2()
-        time.sleep(3)
+        time.sleep(2)
         m.test_steer1()
-        time.sleep(3)
+        time.sleep(2)
         m.test_steer2()
+        time.sleep(2)
+        m.test_steer3()
+        time.sleep(2)
+        m.test_rotate1()
+        time.sleep(2)
+        m.test_rotate2()
+        time.sleep(2)
+        m.test_rotate3()
+        time.sleep(2)
+        m.test_rotate4()
     except IOError:
         print("Error while running tests:")
         print(str(sys.exc_info()[1]))

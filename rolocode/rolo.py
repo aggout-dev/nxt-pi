@@ -19,16 +19,22 @@ class Rolo:
 
     def drive_left(self, power=DEFAULT_POWER):
         print(f'drive_left {power}')
-        self.wheels[0].run(power=power)
+        if power == 0:
+            self.wheels[0].brake()
+        else:
+            self.wheels[0].run(power=power)
 
     def drive_right(self, power=DEFAULT_POWER):
         print(f'drive_right {power}')
-        self.wheels[1].run(power=power)
+        if power == 0:
+            self.wheels[1].brake()
+        else:
+            self.wheels[1].run(power=power)
 
     def rotate(self, power=DEFAULT_POWER):
         print(f'rotate {power}')
-        self.wheels[0].run(power=power_left)
-        self.wheels[1].run(power=-power_right)
+        self.wheels[0].run(power)
+        self.wheels[1].run(-power)
 
     def halt(self):
         print(f'halt')

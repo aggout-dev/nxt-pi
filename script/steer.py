@@ -7,15 +7,14 @@ class Steer(Script):
         min_speed = params['min_speed']
         direction = params['dir']
 
+        _method = None
         if direction == 'right':
-            self.rolo.drive()
-            time.sleep(2)
-            self.rolo.drive_left(min_speed)
-            time.sleep(2)
-            self.rolo.halt()
+            _method = self.rolo.drive_right
         else:
-            self.rolo.drive()
-            time.sleep(2)
-            self.rolo.drive_right(min_speed)
-            time.sleep(2)
-            self.rolo.halt()
+            _method = self.rolo.drive_left
+
+        self.rolo.drive()
+        time.sleep(2)
+        _method(min_speed)
+        time.sleep(2)
+        self.rolo.halt()
