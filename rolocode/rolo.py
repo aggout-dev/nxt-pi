@@ -12,7 +12,7 @@ class Rolo:
         print(f'drive {power}')
         self.drive(power, power)
 
-    def drive(self, power_left=DEFAULT_POWER, power_right=DEFAULT_POWER):
+    def drive(self, power_left, power_right):
         print(f'drive {power_left}, {power_right}')
         self.wheels[0].run(power=power_left)
         self.wheels[1].run(power=power_right)
