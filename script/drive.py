@@ -7,6 +7,6 @@ class Drive(Script):
         power = params['power']
         secs = params['time']
 
-        self.rolo.drive(power)
+        self.rolo.drive_straight(power)
         time.sleep(secs)
         self.rolo.halt()

@@ -46,15 +46,19 @@ class Main:
         self.drive_script.execute(params)
 
     def test_steer1(self):
-        params = {'min_speed': 75, 'dir': 'right'}
+        params = {'left_speed': 75, 'right_speed': 100}
         self.steer_script.execute(params)
 
     def test_steer2(self):
-        params = {'min_speed': 75, 'dir': 'left'}
+        params = {'left_speed': -75, 'right_speed': -100}
         self.steer_script.execute(params)
 
     def test_steer3(self):
-        params = {'min_speed': 0, 'dir': 'right'}
+        params = {'left_speed': 100, 'right_speed': 75}
+        self.steer_script.execute(params)
+
+    def test_steer4(self):
+        params = {'left_speed': -100, 'right_speed': -75}
         self.steer_script.execute(params)
 
     def test_rotate1(self):
@@ -95,6 +99,8 @@ if __name__ == '__main__':
         m.test_steer2()
         time.sleep(2)
         m.test_steer3()
+        time.sleep(2)
+        m.test_steer4()
         time.sleep(2)
         m.test_rotate1()
         time.sleep(2)

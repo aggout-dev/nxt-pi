@@ -8,28 +8,36 @@ class Rolo:
         self.brick_controller = brick_controller
         self.wheels = (brick_controller.motor_b, brick_controller.motor_c)
 
-    def drive(self, power=DEFAULT_POWER):
+    def drive_straight(self, power):
         print(f'drive {power}')
         self.drive(power, power)
 
     def drive(self, power_left, power_right):
         print(f'drive {power_left}, {power_right}')
-        self.wheels[0].run(power=power_left)
-        self.wheels[1].run(power=power_right)
 
-    def drive_left(self, power=DEFAULT_POWER):
-        print(f'drive_left {power}')
-        if power == 0:
+        if power_left == 0:
             self.wheels[0].brake()
         else:
-            self.wheels[0].run(power=power)
+            self.wheels[0].run(power=power_left)
 
-    def drive_right(self, power=DEFAULT_POWER):
-        print(f'drive_right {power}')
-        if power == 0:
+        if power_right == 0:
             self.wheels[1].brake()
         else:
-            self.wheels[1].run(power=power)
+            self.wheels[1].run(power=power_right)
+
+    # def drive_left(self, power=DEFAULT_POWER):
+    #     print(f'drive_left {power}')
+    #     if power == 0:
+    #         self.wheels[0].brake()
+    #     else:
+    #         self.wheels[0].run(power=power)
+    #
+    # def drive_right(self, power=DEFAULT_POWER):
+    #     print(f'drive_right {power}')
+    #     if power == 0:
+    #         self.wheels[1].brake()
+    #     else:
+    #         self.wheels[1].run(power=power)
 
     def rotate(self, power=DEFAULT_POWER):
         print(f'rotate {power}')
