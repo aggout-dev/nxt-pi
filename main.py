@@ -78,6 +78,8 @@ class Main:
         self.rotate_script.execute(params)
 
 
+t_sleep = 1
+
 if __name__ == '__main__':
     brick_connection = None
     rolo = None
@@ -87,27 +89,27 @@ if __name__ == '__main__':
         rolo = Rolo(NXTBrickController(brick_connection))
         m = Main(rolo)
         m.test_drive1()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_drive2()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_drive3()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_drive4()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_steer1()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_steer2()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_steer3()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_steer4()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_rotate1()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_rotate2()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_rotate3()
-        time.sleep(2)
+        time.sleep(t_sleep)
         m.test_rotate4()
     except IOError:
         print("Error while running tests:")
