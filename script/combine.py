@@ -25,3 +25,4 @@ class Combine(Script):
         time.sleep(straight2.duration)
         self.rolo.drive(turn2.power_l, turn2.power_r)
         time.sleep(turn2.duration)
+        self.rolo.halt()

@@ -83,7 +83,7 @@ class Main:
         straight1 = CParams(100, 100, 2)
         straight2 = CParams(75, 75, 2)
         turn1 = CParams(75, 100, 2)
-        turn2 = CParams(75, 50, 2)
+        turn2 = CParams(120, 80, 2)
 
         params = {'straight1': straight1, 'straight2': straight2, 'turn1': turn1, 'turn2': turn2}
         self.combine_script.execute(params)
